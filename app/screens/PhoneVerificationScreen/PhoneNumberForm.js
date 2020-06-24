@@ -18,8 +18,8 @@ import style from './style';
 const initialState = {
   showCountryPicker: false,
   phoneNumber: '',
-  countryCode: 'GB',
-  callingCode: '+44',
+  countryCode: 'USA',
+  callingCode: '+1',
 };
 function PhoneNumberForm(props) {
   const [state, set] = useState({
