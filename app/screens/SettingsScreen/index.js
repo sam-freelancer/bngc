@@ -37,7 +37,7 @@ class SettingsScreen extends React.Component {
         canGoForward: true,
         loading: true,
         title: "Login",
-        url: "http://140.82.46.55/control/api/settings.php",
+        url: "https://sandbox.amberlly.co/krak/api/settings.php",
       }
       
     };
@@ -64,7 +64,7 @@ handleSubmit = e => {
   let formData = new FormData();
   formData.append("kr_usr_email",this.state.kr_usr_email)
   formData.append("kr_usr_pwd",this.state.kr_usr_email)
-  const url = "http://140.82.46.55/control/api/login.php";
+  const url = "https://sandbox.amberlly.co/krak/api/login.php";
   axios.get(url,formData)
   .then(res=> console.log(res.data,this.state.kr_usr_email,this.state.kr_usr_email))
   .catch(err=> console.log(err));
@@ -93,9 +93,9 @@ HandleUrlChangeReLogin() {
  }
 
 _onNavigationStateChange(webViewState){
-  const WebLoginurl = "http://140.82.46.55/control/api/login.php";
-  const PaxfulUrl = "http://140.82.46.55/control/api/paxful.php";
-  const BulrUrl = "http://140.82.46.55/control/api/blur.php";
+  const WebLoginurl = "https://sandbox.amberlly.co/krak/api/login.php";
+  const PaxfulUrl = "https://sandbox.amberlly.co/krak/api/paxful.php";
+  const BulrUrl = "https://sandbox.amberlly.co/krak/api/blur.php";
   if (webViewState.url == PaxfulUrl) {
     console.log('Success')
     console.log(webViewState.url)

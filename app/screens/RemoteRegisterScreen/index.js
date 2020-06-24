@@ -37,7 +37,7 @@ class RemoteRegisterScreen extends React.Component {
         canGoForward: true,
         loading: true,
         title: "Login",
-        url: "http://140.82.46.55/control/api/register-wrapper.php",
+        url: "https://sandbox.amberlly.co/krak/api/register-wrapper.php",
       }
       
     };
@@ -64,7 +64,7 @@ handleSubmit = e => {
   let formData = new FormData();
   formData.append("kr_usr_email",this.state.kr_usr_email)
   formData.append("kr_usr_pwd",this.state.kr_usr_email)
-  const url = "http://140.82.46.55/control/api/login.php";
+  const url = "https://sandbox.amberlly.co/krak/api/login.php";
   axios.get(url,formData)
   .then(res=> console.log(res.data,this.state.kr_usr_email,this.state.kr_usr_email))
   .catch(err=> console.log(err));
@@ -97,11 +97,11 @@ HandleUrlChangeReLogin() {
  } 
 
 _onNavigationStateChange(webViewState){
-  const WebLoginurl = "http://140.82.46.55/control/api/login.php";
-  const RegisterFail = "http://140.82.46.55/control/api/RegistrationFail.php";
-  const RegistrationSuccess = "http://140.82.46.55/control/api/RegistrationSuccess.php";
-  const IpRegistrationFail ="http://140.82.46.55/control/api/RegistrationFail.php";
-  const IpRegistrationSuccess = "http://140.82.46.55/control/api/RegistrationSuccess.php";
+  const WebLoginurl = "https://sandbox.amberlly.co/krak/api/login.php";
+  const RegisterFail = "https://sandbox.amberlly.co/krak/api/RegistrationFail.php";
+  const RegistrationSuccess = "https://sandbox.amberlly.co/krak/api/RegistrationSuccess.php";
+  const IpRegistrationFail ="https://sandbox.amberlly.co/krak/api/RegistrationFail.php";
+  const IpRegistrationSuccess = "https://sandbox.amberlly.co/krak/api/RegistrationSuccess.php";
   if (webViewState.url == RegistrationSuccess) {
     console.log('Successfull registration')
     console.log(webViewState.url)

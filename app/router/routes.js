@@ -11,6 +11,9 @@ import paxfulScreen from 'screens/paxfulScreen/Loadable';
 import SettingsScreen from 'screens/SettingsScreen/Loadable';
 import BlurScreen from 'screens/blurScreen/Loadable';
 import RemoteRegisterScreen from 'screens/RemoteRegisterScreen/Loadable';
+import ProfileScreen from 'screens/ProfileScreen/Loadable';
+import paxfulConnectedScreen from 'screens/paxfulConnectedScreen/Loadable';
+
 
 const routes = {
   home: {
@@ -24,6 +27,14 @@ const routes = {
   register: {
     path: '/register',
     screen: RegistrationScreen,
+  },
+  connectedPaxful: {
+    path: '/connected-paxful',
+    screen: paxfulConnectedScreen,
+  },
+  profile: {
+    path: '/profile',
+    screen: ProfileScreen,
   },
   phoneVerification: {
     path: '/phone-verification',

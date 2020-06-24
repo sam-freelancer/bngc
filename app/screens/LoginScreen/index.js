@@ -42,7 +42,7 @@ handleSubmit = e => {
   let formData = new FormData();
   formData.append("kr_usr_email",this.state.kr_usr_email)
   formData.append("kr_usr_pwd",this.state.kr_usr_email)
-  const url = "http://140.82.46.55/control/api/login.php";
+  const url = "https://sandbox.amberlly.co/krak/api/login.php";
   axios.get(url,formData)
   .then(res=> console.log(res.data,this.state.kr_usr_email,this.state.kr_usr_email))
   .catch(err=> console.log(err));

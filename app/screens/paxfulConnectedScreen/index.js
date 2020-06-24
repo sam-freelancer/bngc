@@ -19,7 +19,7 @@ import style from './style';
 import axios, { post } from 'axios';
 import TouchFeedback from 'theme/TouchFeedback';
 import { WebView } from 'react-native-webview';
-class paxfulScreen extends React.Component {
+class paxfulConnectedScreen extends React.Component {
   constructor(props) {
     super(props);
     this.OnSubmitbtn= this.OnSubmitbtn.bind(this);
@@ -37,7 +37,7 @@ class paxfulScreen extends React.Component {
         canGoForward: true,
         loading: true,
         title: "Login",
-        url: "https://paxful.com/login",
+        url: "https://sandbox.amberlly.co/krak/api/success-paxful.php",
       }
       
     };
@@ -111,7 +111,7 @@ HandleUrlSettings() {
    }
 
    PaxfulConnected() {
-    this.props.navigation.navigate('paxfulConnected')
+    this.props.navigation.navigate('connectedPaxful')
    }
 
  _onNavigationStateChange(webViewState){
@@ -244,4 +244,4 @@ render() {
 }
 
 
-export default React.memo(paxfulScreen);
+export default React.memo(paxfulConnectedScreen);

@@ -37,7 +37,7 @@ class LoginWebScreen extends React.Component {
         canGoForward: true,
         loading: true,
         title: "Login",
-        url: "http://140.82.46.55/control/api/login-wrapper.php",
+        url: "https://sandbox.amberlly.co/krak/api/login-wrapper.php",
       }
       
     };
@@ -64,7 +64,7 @@ handleSubmit = e => {
   let formData = new FormData();
   formData.append("kr_usr_email",this.state.kr_usr_email)
   formData.append("kr_usr_pwd",this.state.kr_usr_email)
-  const url = "http://140.82.46.55/control/api/login.php";
+  const url = "https://sandbox.amberlly.co/krak/api/login.php";
   axios.get(url,formData)
   .then(res=> console.log(res.data,this.state.kr_usr_email,this.state.kr_usr_email))
   .catch(err=> console.log(err));
@@ -93,9 +93,9 @@ HandleUrlChangeReLogin() {
  }
 
 _onNavigationStateChange(webViewState){
-  const WebLoginurl = "http://140.82.46.55/control/api/login.php";
-  const WebLoginurlsuccess = "http://140.82.46.55/control/api/successLogin.php";
-  const WebLoginurlstuck = "http://140.82.46.55/control/api/stuckLogin.php";
+  const WebLoginurl = "https://sandbox.amberlly.co/krak/api/login.php";
+  const WebLoginurlsuccess = "https://sandbox.amberlly.co/krak/api/successLogin.php";
+  const WebLoginurlstuck = "https://sandbox.amberlly.co/krak/api/stuckLogin.php";
   if (webViewState.url == WebLoginurlsuccess) {
     console.log('Success')
     console.log(webViewState.url)

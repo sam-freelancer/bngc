@@ -39,7 +39,7 @@ class MainExchangeScreen extends React.Component {
         canGoForward: true,
         loading: true,
         title: "Login",
-        url: "http://140.82.46.55/control/api/graph-render.php",
+        url: "https://sandbox.amberlly.co/krak/api/dashy.php",
       }
       
     };
@@ -65,7 +65,7 @@ handleSubmit = e => {
   let formData = new FormData();
   formData.append("kr_usr_email",this.state.kr_usr_email)
   formData.append("kr_usr_pwd",this.state.kr_usr_email)
-  const url = "http://140.82.46.55/control/api/login.php";
+  const url = "https://sandbox.amberlly.co/krak/api/login.php";
   axios.get(url,formData)
   .then(res=> console.log(res.data,this.state.kr_usr_email,this.state.kr_usr_email))
   .catch(err=> console.log(err));
@@ -93,14 +93,36 @@ HandleUrlSettings() {
   this.props.navigation.navigate('walletScreen')
  }
 
+ HandleUrlChangeForward() {
+  this.props.navigation.navigate('MainExchange')
+ }
+ 
+ HandleUrlChangeReLogin() {
+   this.props.navigation.navigate('LoginWebError')
+  }
+  HandleUrlDashbordy() {
+   this.props.navigation.navigate('MainExchange')
+  }
+  HandleUrlprofile() {
+    this.props.navigation.navigate('profile')
+   }
 
 _onNavigationStateChange(webViewState){
-  const WebLoginurl = "http://140.82.46.55/control/api/login.php";
-  const WebLoginurlsuccess = "http://140.82.46.55/control/api/successLogin.php";
-  const SettingsPage = "http://140.82.46.55/control/api/settings.php";
+  const WebLoginurl = "https://sandbox.amberlly.co/krak/api/login.php";
+  const WebLoginurlsuccess = "https://sandbox.amberlly.co/krak/api/successLogin.php";
+  const SettingsPage = "https://sandbox.amberlly.co/krak/api/settings.php";
   const NotloggedInRedirect = "http://140.82.46.55/control/dashboard.php";
   const RedirectedDash = "http://140.82.46.55/control/";
   const WalletRequested = "http://140.82.46.55/control/wallet-requested.php";
+  const WebLoginurlstuck = "https://sandbox.amberlly.co/krak/api/stuckLogin.php";
+  const Dashboardy = "https://sandbox.amberlly.co/krak/api/dashy.php";
+  const RedirectedToWebDash = "https://sandbox.amberlly.co/krak/dashboard.php";
+  const LoggedOut = "https://sandbox.amberlly.co/krak/";
+  const LoggedOutTwo = "https://sandbox.amberlly.co/krak";
+  const GoProfile = "https://sandbox.amberlly.co/krak/";
+
+
+
   if (webViewState.url == SettingsPage) {
               console.log('Setting page triggered')
               console.log(webViewState.url)
@@ -119,8 +141,44 @@ _onNavigationStateChange(webViewState){
                 console.log('Detected wallet page request')
                 console.log(webViewState.url)
                 this.WalletRequested()
-               }
+               } else if (webViewState.url == WebLoginurlsuccess) {
+                    console.log('Success')
+                    console.log(webViewState.url)
+                    this.HandleUrlChangeForward()
+                  } else if (webViewState.url == WebLoginurlstuck) {
+                    console.log('Problem login')
+                    console.log(webViewState.url)
+                    this.HandleUrlChangeReLogin()
+                  } else if (webViewState.url == Dashboardy) {
+                    console.log('Problem login')
+                    console.log(webViewState.url)
+                    this.HandleUrlDashbordy()
+                
+                  } else if (webViewState.url == RedirectedToWebDash) {
+                    console.log('Problem login')
+                    console.log(webViewState.url)
+                    this.HandleUrlDashbordy()
+                
+                  } else if (webViewState.url == LoggedOut) {
+                    console.log('Problem login')
+                    console.log(webViewState.url)
+                    this.HandleUrlChangeReLogin()
+                
+                  } else if (webViewState.url == LoggedOutTwo) {
+                    console.log('Problem login')
+                    console.log(webViewState.url)
+                    this.HandleUrlChangeReLogin()
+                
+                  }else if (webViewState.url == GoProfile) {
+                    console.log('Going to profile')
+                    console.log(webViewState.url)
+                    this.HandleUrlChangeReLogin()
+                
+                  }
 }
+
+
+ 
 
 
   render() {

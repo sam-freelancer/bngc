@@ -19,7 +19,7 @@ import style from './style';
 import axios, { post } from 'axios';
 import TouchFeedback from 'theme/TouchFeedback';
 import { WebView } from 'react-native-webview';
-class paxfulScreen extends React.Component {
+class ProfileScreen extends React.Component {
   constructor(props) {
     super(props);
     this.OnSubmitbtn= this.OnSubmitbtn.bind(this);
@@ -37,7 +37,7 @@ class paxfulScreen extends React.Component {
         canGoForward: true,
         loading: true,
         title: "Login",
-        url: "https://paxful.com/login",
+        url: "https://sandbox.amberlly.co/krak/api/login-wrapper.php",
       }
       
     };
@@ -84,106 +84,65 @@ hideSpinner() {
   this.setState({ visible: false });
 }
 
-HandleUrlSettings() {
-  this.props.navigation.navigate('settingsPage')
- }
+HandleUrlChangeForward() {
+ this.props.navigation.navigate('MainExchange')
+}
 
- NotloggedInRedirect() {
+HandleUrlChangeReLogin() {
   this.props.navigation.navigate('LoginWebError')
  }
- 
- WalletRequested() {
-  this.props.navigation.navigate('walletScreen')
- }
-
- HandleUrlChangeForward() {
+ HandleUrlDashbordy() {
   this.props.navigation.navigate('MainExchange')
  }
- 
- HandleUrlChangeReLogin() {
-   this.props.navigation.navigate('LoginWebError')
-  }
-  HandleUrlDashbordy() {
-   this.props.navigation.navigate('MainExchange')
-  }
-  HandleUrlprofile() {
-    this.props.navigation.navigate('profile')
-   }
 
-   PaxfulConnected() {
-    this.props.navigation.navigate('paxfulConnected')
-   }
-
- _onNavigationStateChange(webViewState){
+_onNavigationStateChange(webViewState){
   const WebLoginurl = "https://sandbox.amberlly.co/krak/api/login.php";
   const WebLoginurlsuccess = "https://sandbox.amberlly.co/krak/api/successLogin.php";
-  const SettingsPage = "https://sandbox.amberlly.co/krak/api/settings.php";
-  const NotloggedInRedirect = "http://140.82.46.55/control/dashboard.php";
-  const RedirectedDash = "http://140.82.46.55/control/";
-  const WalletRequested = "http://140.82.46.55/control/wallet-requested.php";
   const WebLoginurlstuck = "https://sandbox.amberlly.co/krak/api/stuckLogin.php";
   const Dashboardy = "https://sandbox.amberlly.co/krak/api/dashy.php";
   const RedirectedToWebDash = "https://sandbox.amberlly.co/krak/dashboard.php";
   const LoggedOut = "https://sandbox.amberlly.co/krak/";
   const LoggedOutTwo = "https://sandbox.amberlly.co/krak";
-  const GoProfile = "https://sandbox.amberlly.co/krak/";
-  const PostLogin = "https://paxful.com/login";
+  if (webViewState.url == WebLoginurlsuccess) {
+    console.log('Success')
+    console.log(webViewState.url)
+    this.HandleUrlChangeForward()
+  } else if (webViewState.url == WebLoginurlstuck) {
+    console.log('Problem login')
+    console.log(webViewState.url)
+    this.HandleUrlChangeReLogin()
+  } else if (webViewState.url == Dashboardy) {
+    console.log('Problem login')
+    console.log(webViewState.url)
+    this.HandleUrlDashbordy()
 
+  } else if (webViewState.url == RedirectedToWebDash) {
+    console.log('Problem login')
+    console.log(webViewState.url)
+    this.HandleUrlDashbordy()
 
+  } else if (webViewState.url == LoggedOut) {
+    console.log('Problem login')
+    console.log(webViewState.url)
+    this.HandleUrlChangeReLogin()
 
-  if (webViewState.url == SettingsPage) {
-              console.log('Setting page triggered')
-              console.log(webViewState.url)
-              this.HandleUrlSettings()
-            } else if (webViewState.url !== PostLogin) {
+  } else if (webViewState.url == LoggedOut) {
+    console.log('Problem login')
+    console.log(webViewState.url)
+    this.HandleUrlChangeReLogin()
 
-              console.log('User detected is not logged in redirecting to login')
-              console.log(webViewState.url)
-              this.PaxfulConnected()
+  } else if (webViewState.url == LoggedOutTwo) {
+    console.log('Problem login')
+    console.log(webViewState.url)
+    this.HandleUrlChangeReLogin()
 
-               } else if (webViewState.url == RedirectedDash) {
-                console.log('User detected is not logged in redirecting to login')
-                console.log(webViewState.url)
-                this.RedirectedDash()
-               } else if (webViewState.url == WalletRequested) {
-                console.log('Detected wallet page request')
-                console.log(webViewState.url)
-                this.WalletRequested()
-               } else if (webViewState.url == WebLoginurlsuccess) {
-                    console.log('Success')
-                    console.log(webViewState.url)
-                    this.HandleUrlChangeForward()
-                  } else if (webViewState.url == WebLoginurlstuck) {
-                    console.log('Problem login')
-                    console.log(webViewState.url)
-                    this.HandleUrlChangeReLogin()
-                  } else if (webViewState.url == Dashboardy) {
-                    console.log('Problem login')
-                    console.log(webViewState.url)
-                    this.HandleUrlDashbordy()
-                
-                  } else if (webViewState.url == RedirectedToWebDash) {
-                    console.log('Problem login')
-                    console.log(webViewState.url)
-                    this.HandleUrlDashbordy()
-                
-                  } else if (webViewState.url == LoggedOut) {
-                    console.log('Problem login')
-                    console.log(webViewState.url)
-                    this.HandleUrlChangeReLogin()
-                
-                  } else if (webViewState.url == LoggedOutTwo) {
-                    console.log('Problem login')
-                    console.log(webViewState.url)
-                    this.HandleUrlChangeReLogin()
-                
-                  }else if (webViewState.url == GoProfile) {
-                    console.log('Going to profile')
-                    console.log(webViewState.url)
-                    this.HandleUrlChangeReLogin()
-                
-                  }
+  }
+
+  
+  
 }
+
+
 
 
 
@@ -244,4 +203,4 @@ render() {
 }
 
 
-export default React.memo(paxfulScreen);
+export default React.memo(ProfileScreen);
