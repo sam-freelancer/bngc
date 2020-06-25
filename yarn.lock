@@ -8947,6 +8947,11 @@ react-native-datepicker@^1.7.2:
   dependencies:
     moment "^2.22.0"
 
+react-native-device-detection@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-device-detection/-/react-native-device-detection-0.2.1.tgz#6b50bf7bf9137a395f9dfd0f2b1d01aeee170a49"
+  integrity sha512-0ErWdxoB4DPLuzzjgS3nUyzauo1YoJ0QjQJZMjx0dr3MGdF3SE9T3Lb2lKj3kPsTQYy5qnlWZ24DmQkHZlIjgw==
+
 react-native-device-info@^5.6.1:
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.6.1.tgz#3ae88d8659b7b64d204dbfc39f69126b769363d4"

@@ -49,7 +49,7 @@ function QRScreen(props) {
           />
         )}
 
-        <TouchFeedback onPress={() => props.navigation.navigate('register')}>
+        <TouchFeedback onPress={() => props.navigation.navigate('remoteRegister')}>
           <FormattedMessage
             {...messages.qrScanLabel}
             style={style.qrScanLabel}
