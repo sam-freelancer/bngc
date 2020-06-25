@@ -13,7 +13,7 @@ import BlurScreen from 'screens/blurScreen/Loadable';
 import RemoteRegisterScreen from 'screens/RemoteRegisterScreen/Loadable';
 import ProfileScreen from 'screens/ProfileScreen/Loadable';
 import paxfulConnectedScreen from 'screens/paxfulConnectedScreen/Loadable';
-
+import RemotePhoneScreen from 'screens/paxfulConnectedScreen/Loadable';
 
 const routes = {
   home: {
@@ -68,11 +68,13 @@ const routes = {
     path: '/remote-register',
     screen: RemoteRegisterScreen,
   },
-
- 
   photoVerification: {
     path: '/photo-verification',
     screen: PhotoVerificationScreen,
+  },
+  remotePhone: {
+    path: '/remote-phone',
+    screen: RemotePhoneScreen,
   },
   applicationReview: {
     path: '/application-review',
