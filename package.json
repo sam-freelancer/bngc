@@ -33,7 +33,7 @@
     "react-native-device-detection": "^0.2.1",
     "react-native-device-info": "^5.6.1",
     "react-native-extra-dimensions-android": "^1.2.5",
-    "react-native-fast-image": "^8.1.5",
+    "react-native-fast-image": "^8.3.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-get-location": "^1.4.2",
     "react-native-iphone-x-helper": "^1.2.1",
